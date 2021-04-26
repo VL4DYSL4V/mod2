@@ -13,6 +13,7 @@ class ArrayList : public List<T>{
 private:
     T *elements = new T[0];
 
+
 public:
 
     void add(T t) override;
@@ -20,6 +21,8 @@ public:
     void remove(int index) override;
 
     T get(int index) override;
+
+    void set(int index, T t) override;
 
 };
 
@@ -32,6 +35,12 @@ template<class T> void ArrayList<T>::add(T t){
     delete[] this->elements;
     this->elements = neuArr;
     this->length++;
+}
+
+template<class T>
+void ArrayList<T>::set(int index, T t) {
+    this->checkIndex(index);
+    elements[index] = t;
 }
 
 template<class T> void ArrayList<T>::remove(int index) {

@@ -6,6 +6,6 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(list
         collection/LinkedList.cpp
         collection/ArrayList.cpp
-        collection/TreeMap.cpp
+        collection/TreeSet.cpp
         exception/IndexOutOfBoundsException.cpp
         main.cpp)

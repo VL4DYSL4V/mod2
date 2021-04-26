@@ -13,6 +13,8 @@ public:
 
     virtual void add(T t) = 0;
 
+    virtual void set(int index, T t) = 0;
+
     virtual T get(int index) = 0;
 
     virtual void remove(int index) = 0;

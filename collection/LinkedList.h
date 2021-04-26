@@ -46,6 +46,8 @@ public:
 
     T get(int index) override;
 
+    void set(int index, T t) override;
+
 };
 
 template<class T>
@@ -59,6 +61,27 @@ void LinkedList<T>::add(T t) {
         tail = newNode;
     }
     this->length++;
+}
+
+template<class T>
+void LinkedList<T>::set(int index, T t) {
+    this->checkIndex(index);
+    Node *nodeBeforeInserted = head;
+    Node * inserted = new Node(t);
+    if (index == 0) {
+        inserted->setNext(head->getNext());
+        head = inserted;
+    } else {
+        for (int i = 0; i < index - 1; i++) {
+            nodeBeforeInserted = nodeBeforeInserted->getNext();
+        }
+        Node *nodeToReplace = nodeBeforeInserted->getNext();
+        inserted->setNext(nodeToReplace->getNext());
+        nodeBeforeInserted->setNext(inserted);
+        if(index == this->length - 1){
+            tail = inserted;
+        }
+    }
 }
 
 template<class T>

@@ -2,13 +2,13 @@
 // Created by владислав on 25.04.2021.
 //
 
-#ifndef LIST_TREEMAP_H
-#define LIST_TREEMAP_H
+#ifndef LIST_TREESET_H
+#define LIST_TREESET_H
 
 #include <clocale>
 
 template<class T>
-class TreeMap {
+class TreeSet {
 private:
 
     class Node {
@@ -57,15 +57,15 @@ private:
 
 public:
 
-    TreeMap() : head(NULL) {
+    TreeSet() : head(NULL) {
     }
 
-    TreeMap(T value) {
+    TreeSet(T value) {
         Node *node = new Node(value);
         head = node;
     }
 
-    TreeMap(Node* node) {
+    TreeSet(Node* node) {
         head = node;
     }
 
@@ -154,4 +154,4 @@ public:
 };
 
 
-#endif //LIST_TREEMAP_H
+#endif //LIST_TREESET_H

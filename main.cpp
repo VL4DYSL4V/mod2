@@ -3,7 +3,7 @@
 #include "collection/List.h"
 #include "collection/ArrayList.h"
 #include "collection/LinkedList.h"
-#include "collection/TreeMap.h"
+#include "collection/TreeSet.h"
 
 template<typename T>
 void printSize(List<T> *list) {
@@ -13,8 +13,9 @@ void printSize(List<T> *list) {
 template<typename T>
 void printAll(List<T> *list) {
     for (int i = 0; i < (*list).size(); i++) {
-        std::cout << (*list).get(i) << std::endl;
+        std::cout << (*list).get(i) << " ";
     }
+    std::cout << std::endl;
 }
 
 void testArrayList() {
@@ -27,6 +28,7 @@ void testArrayList() {
     printAll(arrayList);
     printSize(arrayList);
     (*arrayList).remove(2);
+    arrayList->set(3, 7);
     printAll(arrayList);
     printSize(arrayList);
     try {
@@ -46,6 +48,8 @@ void testLinkedList() {
     printAll(linkedList);
     printSize(linkedList);
     (*linkedList).remove(4);
+    linkedList->set(4, 7);
+    linkedList->add(8);
     printAll(linkedList);
     printSize(linkedList);
     try {
@@ -56,8 +60,8 @@ void testLinkedList() {
     }
 }
 
-void testTreeMap(){
-    TreeMap<int> treeMap;
+void testTreeMap() {
+    TreeSet<int> treeMap;
     treeMap.add(5);
     treeMap.add(10);
     treeMap.add(1);
@@ -65,14 +69,48 @@ void testTreeMap(){
     std::cout << treeMap.find(10) << std::endl;
 }
 
+void bubbleSort(List<int> *list) {
+    int n = list->size();
+    bool swapped;
+    for (int i = 0; i < n - 1; i++) {
+        swapped = false;
+        for (int j = 0; j < n - i - 1; j++) {
+            int curr = list->get(j);
+            int next = list->get(j + 1);
+            if (curr > next) {
+                list->set(j, next);
+                list->set(j + 1, curr);
+                swapped = true;
+            }
+        }
+        // IF no two elements were swapped by inner loop, then break
+        if (!swapped)
+            break;
+    }
+}
+
+void testBubbleSort() {
+    List<int> *list = new LinkedList<int>();
+    for (int i = 0; i < 10; i++) {
+        int next = rand() % 100;
+        list->add(next);
+    }
+    std::cout<<"Before: ";
+    printAll(list);
+    bubbleSort(list);
+    std::cout<<"After: ";
+    printAll(list);
+}
+
 int main() {
 
-    try{
-        testArrayList();
-        testLinkedList();
-        testTreeMap();
+    try {
+//        testArrayList();
+//        testLinkedList();
+//        testTreeMap();
+        testBubbleSort();
     } catch (...) {
-        std::cout<<"Oops..."<<std::endl;
+        std::cout << "Oops..." << std::endl;
     }
 
     return 0;
