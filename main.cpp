@@ -3,6 +3,7 @@
 #include "collection/List.h"
 #include "collection/ArrayList.h"
 #include "collection/LinkedList.h"
+#include "collection/TreeMap.h"
 
 template<typename T>
 void printSize(List<T> *list) {
@@ -55,14 +56,24 @@ void testLinkedList() {
     }
 }
 
+void testTreeMap(){
+    TreeMap<int> treeMap;
+    treeMap.add(5);
+    treeMap.add(10);
+    treeMap.add(1);
+    treeMap.add(3);
+    std::cout << treeMap.find(10) << std::endl;
+}
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
     try{
         testArrayList();
         testLinkedList();
+        testTreeMap();
     } catch (...) {
         std::cout<<"Oops..."<<std::endl;
     }
+
     return 0;
 }
