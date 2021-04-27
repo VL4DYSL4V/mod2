@@ -150,7 +150,7 @@ int main() {
 //        testLinkedList();
 //        testTreeMap();
 //        testBubbleSort();
-    testWriteToFile();
+//    testWriteToFile();
     } catch (...) {
         std::cout << "Oops..." << std::endl;
     }
