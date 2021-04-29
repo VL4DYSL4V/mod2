@@ -16,5 +16,11 @@ jobs:
           unit_test_build: -Dtest=ON
   test:
     steps:
-      - checkout
+      - name: checkout
       - run: test/test.cpp
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
+      - test
