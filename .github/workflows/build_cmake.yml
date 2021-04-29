@@ -15,7 +15,7 @@ jobs:
           run_tests: ON
           unit_test_build: -Dtest=ON
   test:
+    runs-on: windows-latest
     steps:
       - name: Run test
-      - runs-on: windows-latest
-        run: test/test.cpp
+      - run: test/test.cpp
