@@ -4,9 +4,9 @@
 
 #define CATCH_CONFIG_MAIN
 
-#include "catch.hpp"
-#include "collection/List.h"
-#include "collection/ArrayList.h"
+#include "../catch.hpp"
+#include "../collection/List.h"
+#include "../collection/ArrayList.h"
 
 TEST_CASE() {
     List<int> *list = new ArrayList<int>();

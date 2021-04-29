@@ -17,4 +17,4 @@ jobs:
       - name: Run test
         id: run_test
         working-directory: $\x64\Debug\
-        run: test.cpp
+        run: test

@@ -15,4 +15,4 @@ add_executable(tests
         collection/LinkedList.cpp
         collection/ArrayList.cpp
         exception/IndexOutOfBoundsException.cpp
-        test.cpp)
+        test/test.cpp)
