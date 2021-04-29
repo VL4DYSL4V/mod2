@@ -14,10 +14,6 @@ jobs:
           submodule_update: ON
           run_tests: ON
           unit_test_build: -Dtest=ON
-#      - name: Run test
-#        run: |
-#          test/test.cpp
-test:
-  stage: test
-    run:
-      | test/test.cpp
+      - name: Run test
+        run: |
+          test/test.cpp
