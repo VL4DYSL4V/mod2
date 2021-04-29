@@ -1,6 +1,6 @@
 name: C/C++ CI
 
-on: [push]
+on: [ push ]
 
 jobs:
   windows-build:
@@ -16,5 +16,5 @@ jobs:
           unit_test_build: -Dtest=ON
   test:
     steps:
-      - name: checkout
-      - run: test/test.cpp
+      - name: Run test
+        run: test/test.cpp
