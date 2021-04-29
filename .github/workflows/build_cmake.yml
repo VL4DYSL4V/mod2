@@ -19,5 +19,5 @@ jobs:
 #          test/test.cpp
 test:
   stage: test
-  script:
-    - build/test/runAllTests
+    run:
+      | test/test.cpp
