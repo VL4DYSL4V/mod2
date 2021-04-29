@@ -17,4 +17,5 @@ jobs:
   test:
     steps:
       - name: Run test
+      - runs-on: windows-latest
         run: test/test.cpp
