@@ -14,7 +14,10 @@ jobs:
           submodule_update: ON
           run_tests: ON
           unit_test_build: -Dtest=ON
-      - name: Run test
-        id: run_test
-        working-directory: $\x64\Debug\
-        run: test
+#      - name: Run test
+#        run: |
+#          test/test.cpp
+test:
+  stage: test
+  script:
+    - build/test/runAllTests
