@@ -96,36 +96,34 @@ void testBubbleSort() {
         int next = rand() % 100;
         list->add(next);
     }
-    std::cout<<"Before: ";
+    std::cout << "Before: ";
     printAll(list);
     bubbleSort(list);
-    std::cout<<"After: ";
+    std::cout << "After: ";
     printAll(list);
 }
 
-void writeToFile(List<int> * list, const std::string& path){
+void writeToFile(List<int> *list, const std::string &path) {
     std::ofstream my_file;
     my_file.open(path, std::ios::in);
     if (!my_file.is_open()) {
         std::cout << "No such file";
-    }
-    else {
-        for(int i = 0; i < list->size(); i++){
+    } else {
+        for (int i = 0; i < list->size(); i++) {
             my_file << std::to_string(list->get(i)) << std::endl;
         }
     }
     my_file.close();
 }
 
-List<int>* readFromFile(const std::string& path){
+List<int> *readFromFile(const std::string &path) {
     List<int> *out = new ArrayList<int>();
     std::ifstream my_file;
     my_file.open(path, std::ios::in);
     if (!my_file.is_open()) {
         std::cout << "No such file";
-    }
-    else {
-        for(std::string line; getline( my_file, line ); ){
+    } else {
+        for (std::string line; getline(my_file, line);) {
             out->add(std::stoi(line));
         }
     }
@@ -134,26 +132,26 @@ List<int>* readFromFile(const std::string& path){
 }
 
 void testReadFromFile() {
-    List<int>* list = readFromFile("C:\\Users\\владислав\\CLionProjects\\list\\list_input.txt");
+    List<int> *list = readFromFile("C:\\Users\\владислав\\CLionProjects\\list\\list_input.txt");
     printAll(list);
 }
 
-void testWriteToFile(){
-    List<int>* list = readFromFile("C:\\Users\\владислав\\CLionProjects\\list\\list_input.txt");
+void testWriteToFile() {
+    List<int> *list = readFromFile("C:\\Users\\владислав\\CLionProjects\\list\\list_input.txt");
     writeToFile(list, "C:\\Users\\владислав\\CLionProjects\\list\\list_output.txt");
 }
 
 int main() {
 
-    try {
+//    try {
 //        testArrayList();
 //        testLinkedList();
 //        testTreeMap();
 //        testBubbleSort();
-//    testWriteToFile();
-    } catch (...) {
-        std::cout << "Oops..." << std::endl;
-    }
+//        testWriteToFile();
+//    } catch (...) {
+//        std::cout << "Oops..." << std::endl;
+//    }
 
     return 0;
 }
