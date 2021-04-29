@@ -1,19 +1,35 @@
-name: C/C++ CI
+#name: C/C++ CI
+#
+#on: [ push ]
+#
+#jobs:
+#  windows-build:
+#    runs-on: windows-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2.0.0
+#      - name: Build project
+#        uses: nicledomaS/cmake_build_action@v1.4
+#        with:
+#          submodule_update: ON
+#          run_tests: ON
+#          unit_test_build: -Dtest=ON
+image: windows 10
 
-on: [ push ]
+before_script:
+  - apt-get update
+  - apt-get install -y gcc g++
+  - apt-get install --yes cmake
 
-jobs:
-  windows-build:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2.0.0
-      - name: Build project
-        uses: nicledomaS/cmake_build_action@v1.4
-        with:
-          submodule_update: ON
-          run_tests: ON
-          unit_test_build: -Dtest=ON
-test-job1:
-  stage: test
-  run: test/test.cpp
+compile:
+  script:
+    # Compile our app with cmake
+    - export CC=gcc-7
+    - export CXX=g++-7
+    - cmake --version
+    - cmake CMakeLists.txt
+    - make
+    - ./list
+    - ./tests
+
+

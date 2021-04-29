@@ -9,7 +9,8 @@ add_executable(list
         collection/TreeSet.cpp
         exception/IndexOutOfBoundsException.cpp
         main.cpp)
-project(test)
+
+project(tests)
 
 add_executable(tests
         collection/LinkedList.cpp
