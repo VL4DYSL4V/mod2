@@ -18,9 +18,3 @@ jobs:
     steps:
       - name: checkout
       - run: test/test.cpp
-
-workflows:
-  build_and_test:
-    jobs:
-      - build
-      - test
