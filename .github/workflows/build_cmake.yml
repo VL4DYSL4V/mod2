@@ -14,7 +14,7 @@
 #          submodule_update: ON
 #          run_tests: ON
 #          unit_test_build: -Dtest=ON
-image: windows 10
+image: windows:10
 
 before_script:
   - apt-get update
